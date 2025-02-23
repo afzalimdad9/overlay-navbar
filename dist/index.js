@@ -9,11 +9,7 @@ Object.defineProperty(exports, "ReactNavbar", {
     return _ReactNavbar.default;
   }
 });
-
 var _ReactNavbar = _interopRequireDefault(require("./lib/ReactNavbar"));
-
 require("core-js/stable");
-
 require("regenerator-runtime/runtime");
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+function _interopRequireDefault(e) { return e && e.__esModule ? e : { default: e }; }

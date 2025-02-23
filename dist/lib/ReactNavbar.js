@@ -1,24 +1,17 @@
 "use strict";
 
+require("core-js/modules/es.weak-map.js");
 require("core-js/modules/esnext.weak-map.delete-all.js");
-
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
 exports.default = void 0;
-
 require("core-js/modules/web.dom-collections.iterator.js");
-
 var _react = _interopRequireWildcard(require("react"));
-
 require("./ReactNavbar.min.css");
-
 var _reactRouterDom = require("react-router-dom");
-
-function _getRequireWildcardCache(nodeInterop) { if (typeof WeakMap !== "function") return null; var cacheBabelInterop = new WeakMap(); var cacheNodeInterop = new WeakMap(); return (_getRequireWildcardCache = function _getRequireWildcardCache(nodeInterop) { return nodeInterop ? cacheNodeInterop : cacheBabelInterop; })(nodeInterop); }
-
-function _interopRequireWildcard(obj, nodeInterop) { if (!nodeInterop && obj && obj.__esModule) { return obj; } if (obj === null || typeof obj !== "object" && typeof obj !== "function") { return { default: obj }; } var cache = _getRequireWildcardCache(nodeInterop); if (cache && cache.has(obj)) { return cache.get(obj); } var newObj = {}; var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var key in obj) { if (key !== "default" && Object.prototype.hasOwnProperty.call(obj, key)) { var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null; if (desc && (desc.get || desc.set)) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } newObj.default = obj; if (cache) { cache.set(obj, newObj); } return newObj; }
-
+function _getRequireWildcardCache(e) { if ("function" != typeof WeakMap) return null; var r = new WeakMap(), t = new WeakMap(); return (_getRequireWildcardCache = function _getRequireWildcardCache(e) { return e ? t : r; })(e); }
+function _interopRequireWildcard(e, r) { if (!r && e && e.__esModule) return e; if (null === e || "object" != typeof e && "function" != typeof e) return { default: e }; var t = _getRequireWildcardCache(r); if (t && t.has(e)) return t.get(e); var n = { __proto__: null }, a = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var u in e) if ("default" !== u && {}.hasOwnProperty.call(e, u)) { var i = a ? Object.getOwnPropertyDescriptor(e, u) : null; i && (i.get || i.set) ? Object.defineProperty(n, u, i) : n[u] = e[u]; } return n.default = e, t && t.set(e, n), n; }
 const ReactNavbar = _ref => {
   let {
     burgerColor = "black",
@@ -140,7 +133,6 @@ const ReactNavbar = _ref => {
   const link2 = (0, _react.useRef)(null);
   const link3 = (0, _react.useRef)(null);
   const link4 = (0, _react.useRef)(null);
-
   const menuToggleHandler = () => {
     if (menuToggle) {
       menuBurgerItem1.current.classList.remove("menuBurgerItem1");
@@ -148,20 +140,17 @@ const ReactNavbar = _ref => {
       menuBurgerItem3.current.classList.remove("menuBurgerItem3");
       return setMenuToggle(false);
     }
-
     menuBurgerItem1.current.classList.add("menuBurgerItem1");
     menuBurgerItem2.current.classList.add("menuBurgerItem2");
     menuBurgerItem3.current.classList.add("menuBurgerItem3");
     setMenuToggle(true);
   };
-
   const closeBarOnClick = () => {
     menuBurgerItem1.current.classList.remove("menuBurgerItem1");
     menuBurgerItem2.current.classList.remove("menuBurgerItem2");
     menuBurgerItem3.current.classList.remove("menuBurgerItem3");
     return setMenuToggle(false);
   };
-
   (0, _react.useEffect)(() => {
     menuBurger.current.addEventListener("mouseover", () => {
       menuBurgerItem1.current.style.backgroundColor = burgerColorHover;
@@ -206,7 +195,6 @@ const ReactNavbar = _ref => {
     const search = document.querySelector("#searchIcon");
     const cart = document.querySelector("#cartIcon");
     const profile = document.querySelector("#profileIcon");
-
     if (searchIcon) {
       search.addEventListener("mouseover", () => {
         search.style.color = searchIconColorHover;
@@ -215,7 +203,6 @@ const ReactNavbar = _ref => {
         search.style.color = searchIconColor;
       });
     }
-
     if (cartIcon) {
       cart.addEventListener("mouseover", () => {
         cart.style.color = cartIconColorHover;
@@ -224,7 +211,6 @@ const ReactNavbar = _ref => {
         cart.style.color = cartIconColor;
       });
     }
-
     if (profileIcon) {
       profile.addEventListener("mouseover", () => {
         profile.style.color = profileIconColorHover;
@@ -416,6 +402,4 @@ const ReactNavbar = _ref => {
     color: profileIconColor
   })) : "")));
 };
-
-var _default = ReactNavbar;
-exports.default = _default;
+var _default = exports.default = ReactNavbar;

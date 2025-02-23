@@ -1,16 +1,16 @@
-**[overlay-navbar](https://github.com/meabhisingh/overlay-navbar)**
+**[overlay-navbar](https://github.com/afzalimdad9/overlay-navbar)**
 
 ##### Navbar component built with React.
 
 # DEMO
 
-![This is the demo ](https://i.ibb.co/4fHqbGv/ezgif-com-gif-maker.gif)
+![This is the demo of the navbar](https://i.ibb.co/4fHqbGv/ezgif-com-gif-maker.gif)
 
 _click [Here](https://sdcyi.csb.app/) to try demo_
 
 ## Installation
 
-    npm install overlay-navbar
+    npm install @afzalimdad9/overlay-navbar
 
 In order to use overlay-navbar, you have to install react-icons and react-router-dom
 
@@ -27,7 +27,7 @@ Wrap everything inside of `<Router> </Router>`
 
 **Step 2**
 
-    import {ReactNavbar} from "overlay-navbar"
+    import {ReactNavbar} from "@afzalimdad9/overlay-navbar"
 
 **Step 3**
 
@@ -150,13 +150,12 @@ ProfileIconElement| `"no default value, **required**"` | "Pass Profile Icon Here
 
 _Please Must Install **react-router-dom** and **react-icons** before using this Module_
 
-## Created By @meabhisingh
+## Created By @afzalimdad9
 
-My name is Abhishek Singh, a.k.a 6 pack programmer on YouTube.
+My name is Afzal Imdad, a.k.a afzalimdad9 on GitHub.
 
 
-Youtube - Click [Here](http://youtube.com/c/6packprogrammer)
-Instagram - Click [Here](http://instagram.com/meabhisingh)
+Github - Click [Here](https://github.com/afzalimdad9)
 
-LinkedIn - [Click](https://www.linkedin.com/in/meabhisingh/)
+LinkedIn - [Click](https://www.linkedin.com/in/afzalimdad9/)
 
