@@ -12,24 +12,18 @@ _click [Here](https://sdcyi.csb.app/) to try demo_
 
     npm install @afzalimdad9/overlay-navbar
 
-In order to use overlay-navbar, you have to install react-icons and react-router-dom
+In order to use overlay-navbar, you have to install react-icons
 
 for react-icons ` npm install react-icons`
-for react-router-dom `npm install react-router-dom`
 
 ## Docs
 
 **Step 1**
-In App.js,
-`import {BrowserRouter as Router} from "react-router-dom"`
-and
-Wrap everything inside of `<Router> </Router>`
-
-**Step 2**
 
     import {ReactNavbar} from "@afzalimdad9/overlay-navbar"
+    import "@afzalimdad9/overlay-navbar/ReactNavbar.min.css";
 
-**Step 3**
+**Step 2**
 
 add ReactNavbar Component in your file while passing appropriate props
 
@@ -46,6 +40,7 @@ add ReactNavbar Component in your file while passing appropriate props
 | navColor3                | `"navColor2"`                      | "This is to set the color of third nav section                       |
 | navColor4                | `"navColor3"`                      | "This is to set the color of fourth nav section                      |
 | logo                     | `"no default value, **required**"` | "To set the Logo in Navbar"                                          |
+| Link                     | `"HTML Anchor Tag, **optional**"` | "To set the Link in Navbar"                                          |
 | logoWidth                | `"100px"`                          | "To set the width of Logo"                                           |
 | logoHeight               | `"unset"`                          | "To set the height of Logo"                                          |
 | logoHoverSize            | `"15px"`                           | "To set the drop-shadow blur at the time of hover"                   |
@@ -148,7 +143,7 @@ ProfileIconElement| `"no default value, **required**"` | "Pass Profile Icon Here
 | cartIconAnimationTime    | `searchIconAnimationTime + 0.5`    | "To set the Animation time of Cart Icon"                             |
 | profileIconAnimationTime | `cartIconAnimationTime + 0.5`      | "To set the Animation time of profile Icon"                          |
 
-_Please Must Install **react-router-dom** and **react-icons** before using this Module_
+_Please Must Install **react-icons** before using this Module_
 
 ## Created By @afzalimdad9
 

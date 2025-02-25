@@ -1,5 +1,4 @@
 import React, { useState, useRef, Fragment, useEffect } from "react";
-import "./ReactNavbar.min.css";
 import { ImSearch, FiShoppingBag, RiAccountBoxFill } from "react-icons/all";
 
 const ReactNavbar = ({

@@ -1,5 +1,4 @@
 import React, { useState, useRef, Fragment, useEffect } from "react";
-import "./ReactNavbar.min.css";
 const ReactNavbar = ({
   burgerColor = "black",
   burgerColorHover = burgerColor,
