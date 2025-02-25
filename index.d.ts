@@ -34,7 +34,7 @@ export interface ReactNavbarProps {
     nav3Transition?: number;
     nav4Transition?: number;
 
-    Link?: React.ReactNode;
+    LinkTag?: any;
 
     link1Text?: string;
     link2Text?: string;

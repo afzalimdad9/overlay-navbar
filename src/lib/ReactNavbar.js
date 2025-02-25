@@ -1,4 +1,11 @@
 import React, { useState, useRef, Fragment, useEffect } from "react";
+const Link = ({LinkTag, children, props}) => {
+  return React.createElement(
+    LinkTag ?? "a",
+    props,
+    ...children
+  )
+}
 const ReactNavbar = ({
   burgerColor = "black",
   burgerColorHover = burgerColor,
@@ -33,7 +40,7 @@ const ReactNavbar = ({
   nav3Transition = nav2Transition + 0.4,
   nav4Transition = nav3Transition + 0.4,
 
-  Link = React.createElement("a"),
+  LinkTag,
 
   link1Text = "Text 1",
   link2Text = "Text 2",
@@ -303,6 +310,7 @@ const ReactNavbar = ({
           <Link
             className="linksReactNavbar"
             ref={link1}
+            LinkTag={LinkTag}
             style={{
               fontSize: link1Size,
               fontFamily: link1Family,
@@ -325,6 +333,7 @@ const ReactNavbar = ({
           <Link
             className="linksReactNavbar"
             ref={link2}
+            LinkTag={LinkTag}
             style={{
               fontSize: link2Size,
               fontFamily: link2Family,
@@ -359,6 +368,7 @@ const ReactNavbar = ({
           }}
         >
           <Link
+            LinkTag={LinkTag}
             className="linksReactNavbar"
             ref={link3}
             style={{
@@ -381,6 +391,7 @@ const ReactNavbar = ({
             {link3Text}
           </Link>
           <Link
+            LinkTag={LinkTag}
             className="linksReactNavbar"
             ref={link4}
             style={{
@@ -417,7 +428,9 @@ const ReactNavbar = ({
           }}
         >
           {searchIcon ? (
-            <Link href={searchIconUrl} onClick={closeBarOnClick}>
+            <Link
+            LinkTag={LinkTag}
+             href={searchIconUrl} onClick={closeBarOnClick}>
               <SearchIconElement
                 id="searchIcon"
                 style={{
@@ -435,7 +448,9 @@ const ReactNavbar = ({
             ""
           )}
           {cartIcon ? (
-            <Link href={cartIconUrl} onClick={closeBarOnClick}>
+            <Link 
+            LinkTag={LinkTag}
+            href={cartIconUrl} onClick={closeBarOnClick}>
               <CartIconElement
                 id="cartIcon"
                 style={{
@@ -453,7 +468,9 @@ const ReactNavbar = ({
             ""
           )}
           {profileIcon ? (
-            <Link href={profileIconUrl} onClick={closeBarOnClick}>
+            <Link 
+            LinkTag={LinkTag}
+            href={profileIconUrl} onClick={closeBarOnClick}>
               <ProfileIconElement
                 id="profileIcon"
                 style={{
