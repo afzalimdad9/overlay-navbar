@@ -1,6 +1,5 @@
 import React, { useState, useRef, Fragment, useEffect } from "react";
 import "./ReactNavbar.min.css";
-import { Link } from "react-router-dom";
 const ReactNavbar = ({
   burgerColor = "black",
   burgerColorHover = burgerColor,
@@ -34,6 +33,8 @@ const ReactNavbar = ({
   nav2Transition = nav1Transition + 0.4,
   nav3Transition = nav2Transition + 0.4,
   nav4Transition = nav3Transition + 0.4,
+
+  Link = React.createElement("a"),
 
   link1Text = "Text 1",
   link2Text = "Text 2",
@@ -317,7 +318,7 @@ const ReactNavbar = ({
                 ? `LinkIn ${link1AnimationTime}s`
                 : `LinkOut ${link1AnimationTime}s`,
             }}
-            to={link1Url}
+            href={link1Url}
             onClick={closeBarOnClick}
           >
             {link1Text}
@@ -339,7 +340,7 @@ const ReactNavbar = ({
                 ? `LinkIn ${link2AnimationTime}s`
                 : `LinkOut ${link2AnimationTime}s`,
             }}
-            to={link2Url}
+            href={link2Url}
             onClick={closeBarOnClick}
           >
             {link2Text}
@@ -375,7 +376,7 @@ const ReactNavbar = ({
                 ? `LinkIn ${link3AnimationTime}s`
                 : `LinkOut ${link3AnimationTime}s`,
             }}
-            to={link3Url}
+            href={link3Url}
             onClick={closeBarOnClick}
           >
             {link3Text}
@@ -397,7 +398,7 @@ const ReactNavbar = ({
                 ? `LinkIn ${link4AnimationTime}s`
                 : `LinkOut ${link4AnimationTime}s`,
             }}
-            to={link4Url}
+            href={link4Url}
             onClick={closeBarOnClick}
           >
             {link4Text}
@@ -417,7 +418,7 @@ const ReactNavbar = ({
           }}
         >
           {searchIcon ? (
-            <Link to={searchIconUrl} onClick={closeBarOnClick}>
+            <Link href={searchIconUrl} onClick={closeBarOnClick}>
               <SearchIconElement
                 id="searchIcon"
                 style={{
@@ -435,7 +436,7 @@ const ReactNavbar = ({
             ""
           )}
           {cartIcon ? (
-            <Link to={cartIconUrl} onClick={closeBarOnClick}>
+            <Link href={cartIconUrl} onClick={closeBarOnClick}>
               <CartIconElement
                 id="cartIcon"
                 style={{
@@ -453,7 +454,7 @@ const ReactNavbar = ({
             ""
           )}
           {profileIcon ? (
-            <Link to={profileIconUrl} onClick={closeBarOnClick}>
+            <Link href={profileIconUrl} onClick={closeBarOnClick}>
               <ProfileIconElement
                 id="profileIcon"
                 style={{

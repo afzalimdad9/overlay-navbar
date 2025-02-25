@@ -1,6 +1,5 @@
 import React, { useState, useRef, Fragment, useEffect } from "react";
 import "./ReactNavbar.min.css";
-import { Link } from "react-router-dom";
 import { ImSearch, FiShoppingBag, RiAccountBoxFill } from "react-icons/all";
 
 const ReactNavbar = ({
@@ -37,6 +36,7 @@ const ReactNavbar = ({
   nav3Transition = nav2Transition + 0.4,
   nav4Transition = nav3Transition + 0.4,
 
+  Link = React.createElement("a"),
   link1Text = "Text 1",
   link2Text = "Text 2",
   link3Text = "Text 3",
@@ -309,11 +309,11 @@ const ReactNavbar = ({
                 ? `LinkIn ${link1AnimationTime}s`
                 : `LinkOut ${link1AnimationTime}s`,
             }}
-            to={link1Url}
+            href={link1Url}
           >
             {link1Text}
           </Link>
-          <Link
+          Z
             className="linksReactNavbar"
             ref={link2}
             style={{
@@ -330,7 +330,7 @@ const ReactNavbar = ({
                 ? `LinkIn ${link2AnimationTime}s`
                 : `LinkOut ${link2AnimationTime}s`,
             }}
-            to={link2Url}
+            href={link2Url}
           >
             {link2Text}
           </Link>
@@ -365,7 +365,7 @@ const ReactNavbar = ({
                 ? `LinkIn ${link3AnimationTime}s`
                 : `LinkOut ${link3AnimationTime}s`,
             }}
-            to={link3Url}
+            href={link3Url}
           >
             {link3Text}
           </Link>
@@ -386,7 +386,7 @@ const ReactNavbar = ({
                 ? `LinkIn ${link4AnimationTime}s`
                 : `LinkOut ${link4AnimationTime}s`,
             }}
-            to={link4Url}
+            href={link4Url}
           >
             {link4Text}
           </Link>
@@ -405,7 +405,7 @@ const ReactNavbar = ({
           }}
         >
           {searchIcon ? (
-            <Link to={searchIconUrl}>
+            <Link href={searchIconUrl}>
               <ImSearch
                 id="searchIcon"
                 style={{
@@ -423,7 +423,7 @@ const ReactNavbar = ({
             ""
           )}
           {cartIcon ? (
-            <Link to={cartIconUrl}>
+            <Link href={cartIconUrl}>
               <FiShoppingBag
                 id="cartIcon"
                 style={{
@@ -441,7 +441,7 @@ const ReactNavbar = ({
             ""
           )}
           {profileIcon ? (
-            <Link to={profileIconUrl}>
+            <Link href={profileIconUrl}>
               <RiAccountBoxFill
                 id="profileIcon"
                 style={{
