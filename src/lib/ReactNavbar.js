@@ -1,5 +1,5 @@
 import React, { useState, useRef, Fragment, useEffect } from "react";
-const Link = ({LinkTag, children, props}) => {
+const Link = ({LinkTag, children, ...props}) => {
   return React.createElement(
     LinkTag ?? "a",
     props,
