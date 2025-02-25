@@ -1,6 +1,6 @@
 {
   "name": "@afzalimdad9/overlay-navbar",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "This is a animated overlay navbar created by @afzalimdad9",
   "main": "dist/index.js",
   "module": "dist/index.js",
@@ -13,7 +13,8 @@
   },
   "files": [
     "dist",
-    "README.md"
+    "README.md",
+    "index.d.ts"
   ],
   "keywords": [
     "overlay-navbar",
