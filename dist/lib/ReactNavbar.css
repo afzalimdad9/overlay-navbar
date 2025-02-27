@@ -4,7 +4,6 @@ body {
 
 .menuBurger {
   width: 3vmax;
-  height: 2.5vmax;
   position: fixed;
   top: 2vmax;
   left: 2vmax;
@@ -14,8 +13,8 @@ body {
   align-items: center;
   cursor: pointer;
   padding: 1vmax;
-  overflow: hidden;
   z-index: 1000;
+  gap: 0.5vmax;
 }
 
 .menuBurgerItem {
