@@ -1,13 +1,9 @@
 import React, { useState, useRef, Fragment, useEffect } from "react";
 import { ImSearch, FiShoppingBag, RiAccountBoxFill } from "react-icons/all";
 
-const Link = ({LinkTag, children, ...props}) => {
-  return React.createElement(
-    LinkTag ?? "a",
-    props,
-    ...children
-  )
-}
+const Link = ({ LinkTag, children, ...props }) => {
+  return React.createElement(LinkTag ?? "a", props, children);
+};
 
 const ReactNavbar = ({
   burgerColor = "black",
@@ -416,9 +412,7 @@ const ReactNavbar = ({
           }}
         >
           {searchIcon ? (
-            <Link href={searchIconUrl}
-            LinkTag={LinkTag}
-             >
+            <Link href={searchIconUrl} LinkTag={LinkTag}>
               <ImSearch
                 id="searchIcon"
                 style={{
@@ -436,9 +430,7 @@ const ReactNavbar = ({
             ""
           )}
           {cartIcon ? (
-            <Link href={cartIconUrl}
-            LinkTag={LinkTag}
-            >
+            <Link href={cartIconUrl} LinkTag={LinkTag}>
               <FiShoppingBag
                 id="cartIcon"
                 style={{
@@ -456,9 +448,7 @@ const ReactNavbar = ({
             ""
           )}
           {profileIcon ? (
-            <Link href={profileIconUrl} 
-            LinkTag={LinkTag}
-            >
+            <Link href={profileIconUrl} LinkTag={LinkTag}>
               <RiAccountBoxFill
                 id="profileIcon"
                 style={{

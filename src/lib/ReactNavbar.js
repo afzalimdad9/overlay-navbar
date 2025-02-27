@@ -1,11 +1,7 @@
 import React, { useState, useRef, Fragment, useEffect } from "react";
-const Link = ({LinkTag, children, ...props}) => {
-  return React.createElement(
-    LinkTag ?? "a",
-    props,
-    ...children
-  )
-}
+const Link = ({ LinkTag, children, ...props }) => {
+  return React.createElement(LinkTag ?? "a", props, children);
+};
 const ReactNavbar = ({
   burgerColor = "black",
   burgerColorHover = burgerColor,
@@ -429,8 +425,10 @@ const ReactNavbar = ({
         >
           {searchIcon ? (
             <Link
-            LinkTag={LinkTag}
-             href={searchIconUrl} onClick={closeBarOnClick}>
+              LinkTag={LinkTag}
+              href={searchIconUrl}
+              onClick={closeBarOnClick}
+            >
               <SearchIconElement
                 id="searchIcon"
                 style={{
@@ -448,9 +446,11 @@ const ReactNavbar = ({
             ""
           )}
           {cartIcon ? (
-            <Link 
-            LinkTag={LinkTag}
-            href={cartIconUrl} onClick={closeBarOnClick}>
+            <Link
+              LinkTag={LinkTag}
+              href={cartIconUrl}
+              onClick={closeBarOnClick}
+            >
               <CartIconElement
                 id="cartIcon"
                 style={{
@@ -468,9 +468,11 @@ const ReactNavbar = ({
             ""
           )}
           {profileIcon ? (
-            <Link 
-            LinkTag={LinkTag}
-            href={profileIconUrl} onClick={closeBarOnClick}>
+            <Link
+              LinkTag={LinkTag}
+              href={profileIconUrl}
+              onClick={closeBarOnClick}
+            >
               <ProfileIconElement
                 id="profileIcon"
                 style={{

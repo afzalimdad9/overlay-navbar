@@ -1,6 +1,6 @@
 {
   "name": "@afzalimdad9/overlay-navbar",
-  "version": "1.0.6",
+  "version": "1.0.7",
   "description": "This is a animated overlay navbar created by @afzalimdad9",
   "main": "dist/index.js",
   "module": "dist/index.js",
