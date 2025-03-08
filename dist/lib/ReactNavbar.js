@@ -21,6 +21,7 @@ var Link = function Link(_ref) {
   var LinkTag = _ref.LinkTag,
     children = _ref.children,
     props = _objectWithoutProperties(_ref, _excluded);
+  if (LinkTag) return /*#__PURE__*/_react["default"].createElement(LinkTag, props, children);
   return /*#__PURE__*/_react["default"].createElement(LinkTag !== null && LinkTag !== void 0 ? LinkTag : "a", props, children);
 };
 var ReactNavbar = function ReactNavbar(_ref2) {
@@ -269,74 +270,83 @@ var ReactNavbar = function ReactNavbar(_ref2) {
     return setMenuToggle(false);
   };
   (0, _react.useEffect)(function () {
+    var handleColor = function handleColor(element, color) {
+      element.style.color = color;
+    };
+    var handleBackgroundColor = function handleBackgroundColor(element, color) {
+      element.style.backgroundColor = color;
+    };
+    var handleFilter = function handleFilter(element, filter) {
+      element.style.filter = filter;
+    };
     menuBurger.current.addEventListener("mouseover", function () {
-      menuBurgerItem1.current.style.backgroundColor = burgerColorHover;
-      menuBurgerItem2.current.style.backgroundColor = burgerColorHover;
-      menuBurgerItem3.current.style.backgroundColor = burgerColorHover;
+      handleBackgroundColor(menuBurgerItem1.current, burgerColorHover);
+      handleBackgroundColor(menuBurgerItem2.current, burgerColorHover);
+      handleBackgroundColor(menuBurgerItem3.current, burgerColorHover);
     });
     menuBurger.current.addEventListener("mouseleave", function () {
-      menuBurgerItem1.current.style.backgroundColor = burgerColor;
-      menuBurgerItem2.current.style.backgroundColor = burgerColor;
-      menuBurgerItem3.current.style.backgroundColor = burgerColor;
+      handleBackgroundColor(menuBurgerItem1.current, burgerColor);
+      handleBackgroundColor(menuBurgerItem2.current, burgerColor);
+      handleBackgroundColor(menuBurgerItem3.current, burgerColor);
     });
     logoRef.current.addEventListener("mouseover", function () {
-      logoRef.current.style.filter = "drop-shadow(0 0 ".concat(logoHoverSize, " ").concat(logoHoverColor, ")");
+      handleFilter(logoRef.current, "drop-shadow(0 0 ".concat(logoHoverSize, " ").concat(logoHoverColor, ")"));
     });
     logoRef.current.addEventListener("mouseleave", function () {
-      logoRef.current.style.filter = "none";
+      handleFilter(logoRef.current, "none");
     });
     link1.current.addEventListener("mouseover", function () {
-      link1.current.style.color = link1ColorHover;
+      handleColor(link1.current, link1ColorHover);
     });
     link1.current.addEventListener("mouseleave", function () {
-      link1.current.style.color = link1Color;
+      handleColor(link1.current, link1Color);
     });
     link2.current.addEventListener("mouseover", function () {
-      link2.current.style.color = link2ColorHover;
+      handleColor(link2.current, link2ColorHover);
     });
     link2.current.addEventListener("mouseleave", function () {
-      link2.current.style.color = link2Color;
+      handleColor(link2.current, link2Color);
     });
     link3.current.addEventListener("mouseover", function () {
-      link3.current.style.color = link3ColorHover;
+      handleColor(link3.current, link3ColorHover);
     });
     link3.current.addEventListener("mouseleave", function () {
-      link3.current.style.color = link3Color;
+      handleColor(link3.current, link3Color);
     });
     link4.current.addEventListener("mouseover", function () {
-      link4.current.style.color = link4ColorHover;
+      handleColor(link4.current, link4ColorHover);
     });
     link4.current.addEventListener("mouseleave", function () {
-      link4.current.style.color = link4Color;
+      handleColor(link4.current, link4Color);
     });
     var search = document.querySelector("#searchIcon");
     var cart = document.querySelector("#cartIcon");
     var profile = document.querySelector("#profileIcon");
     if (searchIcon) {
       search.addEventListener("mouseover", function () {
-        search.style.color = searchIconColorHover;
+        handleColor(search, searchIconColorHover);
       });
       search.addEventListener("mouseleave", function () {
-        search.style.color = searchIconColor;
+        handleColor(search, searchIconColor);
       });
     }
     if (cartIcon) {
       cart.addEventListener("mouseover", function () {
-        cart.style.color = cartIconColorHover;
+        handleColor(cart, cartIconColorHover);
       });
       cart.addEventListener("mouseleave", function () {
-        cart.style.color = cartIconColor;
+        handleColor(cart, cartIconColor);
       });
     }
     if (profileIcon) {
       profile.addEventListener("mouseover", function () {
-        profile.style.color = profileIconColorHover;
+        handleColor(profile, profileIconColorHover);
       });
       profile.addEventListener("mouseleave", function () {
-        profile.style.color = profileIconColor;
+        handleColor(profile, profileIconColor);
       });
     }
-  });
+  }, [menuBurger.current, menuBurgerItem1.current, menuBurgerItem2.current, menuBurgerItem3.current, burgerColor, burgerColorHover, logoRef.current, logoHoverSize, logoHoverColor, link1.current, link1ColorHover, link1Color, link2.current, link2ColorHover, link2Color, link3.current, link3ColorHover, link3Color, link4.current, link4ColorHover, link4Color, searchIcon, cartIcon, profileIcon, searchIconColorHover, searchIconColor, cartIconColorHover, cartIconColor, profileIconColorHover, profileIconColor]);
   return /*#__PURE__*/_react["default"].createElement(_react.Fragment, null, /*#__PURE__*/_react["default"].createElement("div", {
     className: "menuBurger",
     ref: menuBurger,

@@ -1,10 +1,8 @@
 import React, { useState, useRef, Fragment, useEffect } from "react";
-
 const Link = ({ LinkTag, children, ...props }) => {
   if (LinkTag) return <LinkTag {...props}>{children}</LinkTag>;
   return React.createElement(LinkTag ?? "a", props, children);
 };
-
 const ReactNavbar = ({
   burgerColor = "black",
   burgerColorHover = burgerColor,
@@ -154,102 +152,136 @@ const ReactNavbar = ({
     menuBurgerItem1.current.classList.remove("menuBurgerItem1");
     menuBurgerItem2.current.classList.remove("menuBurgerItem2");
     menuBurgerItem3.current.classList.remove("menuBurgerItem3");
-    setMenuToggle(false);
+    return setMenuToggle(false);
   };
 
   useEffect(() => {
-    const handleMouseOver = (element, color) => {
+    const handleColor = (element, color) => {
       element.style.color = color;
     };
 
-    const handleMouseLeave = (element, color) => {
-      element.style.color = color;
+    const handleBackgroundColor = (element, color) => {
+      element.style.backgroundColor = color;
+    };
+    const handleFilter = (element, filter) => {
+      element.style.filter = filter;
     };
 
-    const addHoverEffect = (element, colorHover, color) => {
-      element.addEventListener("mouseover", () => handleMouseOver(element, colorHover));
-      element.addEventListener("mouseleave", () => handleMouseLeave(element, color));
-    };
+    menuBurger.current.addEventListener("mouseover", () => {
+      handleBackgroundColor(menuBurgerItem1.current, burgerColorHover);
+      handleBackgroundColor(menuBurgerItem2.current, burgerColorHover);
+      handleBackgroundColor(menuBurgerItem3.current, burgerColorHover);
+    });
+    menuBurger.current.addEventListener("mouseleave", () => {
+      handleBackgroundColor(menuBurgerItem1.current, burgerColor);
+      handleBackgroundColor(menuBurgerItem2.current, burgerColor);
+      handleBackgroundColor(menuBurgerItem3.current, burgerColor);
+    });
 
-    const removeHoverEffect = (element, colorHover, color) => {
-      element.removeEventListener("mouseover", () => handleMouseOver(element, colorHover));
-      element.removeEventListener("mouseleave", () => handleMouseLeave(element, color));
-    };
+    logoRef.current.addEventListener("mouseover", () => {
+      handleFilter(logoRef.current, `drop-shadow(0 0 ${logoHoverSize} ${logoHoverColor})`);
+    });
 
-    const elements = [
-      { ref: menuBurgerItem1, colorHover: burgerColorHover, color: burgerColor },
-      { ref: menuBurgerItem2, colorHover: burgerColorHover, color: burgerColor },
-      { ref: menuBurgerItem3, colorHover: burgerColorHover, color: burgerColor },
-      { ref: logoRef, colorHover: `drop-shadow(0 0 ${logoHoverSize} ${logoHoverColor})`, color: "none" },
-      { ref: link1, colorHover: link1ColorHover, color: link1Color },
-      { ref: link2, colorHover: link2ColorHover, color: link2Color },
-      { ref: link3, colorHover: link3ColorHover, color: link3Color },
-      { ref: link4, colorHover: link4ColorHover, color: link4Color },
-    ];
+    logoRef.current.addEventListener("mouseleave", () => {
+      handleFilter(logoRef.current, `none`);
+    });
 
-    elements.forEach(({ ref, colorHover, color }) => {
-      if (ref.current) {
-        addHoverEffect(ref.current, colorHover, color);
-      }
+    link1.current.addEventListener("mouseover", () => {
+      handleColor(link1.current, link1ColorHover);
+    });
+
+    link1.current.addEventListener("mouseleave", () => {
+      handleColor(link1.current, link1Color);
+    });
+
+    link2.current.addEventListener("mouseover", () => {
+      handleColor(link2.current, link2ColorHover);
+    });
+
+    link2.current.addEventListener("mouseleave", () => {
+      handleColor(link2.current, link2Color);
+    });
+
+    link3.current.addEventListener("mouseover", () => {
+      handleColor(link3.current, link3ColorHover);
+    });
+
+    link3.current.addEventListener("mouseleave", () => {
+      handleColor(link3.current, link3Color);
+    });
+
+    link4.current.addEventListener("mouseover", () => {
+      handleColor(link4.current, link4ColorHover);
+    });
+
+    link4.current.addEventListener("mouseleave", () => {
+      handleColor(link4.current, link4Color);
     });
 
     const search = document.querySelector("#searchIcon");
     const cart = document.querySelector("#cartIcon");
     const profile = document.querySelector("#profileIcon");
 
-    if (searchIcon && search) {
-      addHoverEffect(search, searchIconColorHover, searchIconColor);
-    }
-
-    if (cartIcon && cart) {
-      addHoverEffect(cart, cartIconColorHover, cartIconColor);
-    }
-
-    if (profileIcon && profile) {
-      addHoverEffect(profile, profileIconColorHover, profileIconColor);
-    }
-
-    return () => {
-      elements.forEach(({ ref, colorHover, color }) => {
-        if (ref.current) {
-          removeHoverEffect(ref.current, colorHover, color);
-        }
+    if (searchIcon) {
+      search.addEventListener("mouseover", () => {
+        handleColor(search, searchIconColorHover);
       });
 
-      if (searchIcon && search) {
-        removeHoverEffect(search, searchIconColorHover, searchIconColor);
-      }
+      search.addEventListener("mouseleave", () => {
+        handleColor(search, searchIconColor);
+      });
+    }
 
-      if (cartIcon && cart) {
-        removeHoverEffect(cart, cartIconColorHover, cartIconColor);
-      }
+    if (cartIcon) {
+      cart.addEventListener("mouseover", () => {
+        handleColor(cart, cartIconColorHover);
+      });
 
-      if (profileIcon && profile) {
-        removeHoverEffect(profile, profileIconColorHover, profileIconColor);
-      }
-    };
+      cart.addEventListener("mouseleave", () => {
+        handleColor(cart, cartIconColor);
+      });
+    }
+
+    if (profileIcon) {
+      profile.addEventListener("mouseover", () => {
+        handleColor(profile, profileIconColorHover);
+      });
+
+      profile.addEventListener("mouseleave", () => {
+        handleColor(profile, profileIconColor);
+      });
+    }
   }, [
+    menuBurger.current,
+    menuBurgerItem1.current,
+    menuBurgerItem2.current,
+    menuBurgerItem3.current,
     burgerColor,
     burgerColorHover,
-    logoHoverColor,
+    logoRef.current,
     logoHoverSize,
-    link1Color,
+    logoHoverColor,
+    link1.current,
     link1ColorHover,
-    link2Color,
+    link1Color,
+    link2.current,
     link2ColorHover,
-    link3Color,
+    link2Color,
+    link3.current,
     link3ColorHover,
-    link4Color,
+    link3Color,
+    link4.current,
     link4ColorHover,
+    link4Color,
     searchIcon,
-    searchIconColor,
-    searchIconColorHover,
     cartIcon,
-    cartIconColor,
-    cartIconColorHover,
     profileIcon,
-    profileIconColor,
+    searchIconColorHover,
+    searchIconColor,
+    cartIconColorHover,
+    cartIconColor,
     profileIconColorHover,
+    profileIconColor,
   ]);
 
   return (
