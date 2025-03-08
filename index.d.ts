@@ -92,7 +92,7 @@ export interface ReactNavbarProps {
     link4AnimationTime?: number;
 
     searchIcon?: boolean;
-    SearchIconElement?: React.ReactNode;
+    SearchIconElement?: any;
     searchIconMargin?: string;
     searchIconUrl?: string;
     searchIconSize?: string;
@@ -102,7 +102,7 @@ export interface ReactNavbarProps {
     searchIconAnimationTime?: number;
 
     cartIcon?: boolean;
-    CartIconElement?: React.ReactNode;
+    CartIconElement?: any;
     cartIconMargin?: string;
     cartIconUrl?: string;
     cartIconSize?: string;
@@ -112,7 +112,7 @@ export interface ReactNavbarProps {
     cartIconAnimationTime?: number;
 
     profileIcon?: boolean;
-    ProfileIconElement?: React.ReactNode;
+    ProfileIconElement?: any;
     profileIconMargin?: string;
     profileIconUrl?: string;
     profileIconSize?: string;

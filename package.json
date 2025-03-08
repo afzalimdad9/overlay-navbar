@@ -1,6 +1,6 @@
 {
   "name": "@afzalimdad9/overlay-navbar",
-  "version": "1.0.8",
+  "version": "1.0.9",
   "description": "This is a animated overlay navbar created by @afzalimdad9",
   "main": "dist/index.js",
   "module": "dist/index.js",
@@ -31,7 +31,7 @@
   "dependencies": {
     "@babel/polyfill": "^7.12.1",
     "@babel/preset-react": "^7.26.3",
-    "core-js": "^3.40.0",
+    "core-js": "^3.41.0",
     "cross-env": "^7.0.3",
     "regenerator-runtime": "^0.14.1",
     "rimraf": "^6.0.1"

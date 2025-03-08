@@ -1,7 +1,10 @@
 import React, { useState, useRef, Fragment, useEffect } from "react";
+
 const Link = ({ LinkTag, children, ...props }) => {
+  if (LinkTag) return <LinkTag {...props}>{children}</LinkTag>;
   return React.createElement(LinkTag ?? "a", props, children);
 };
+
 const ReactNavbar = ({
   burgerColor = "black",
   burgerColorHover = burgerColor,
@@ -151,95 +154,103 @@ const ReactNavbar = ({
     menuBurgerItem1.current.classList.remove("menuBurgerItem1");
     menuBurgerItem2.current.classList.remove("menuBurgerItem2");
     menuBurgerItem3.current.classList.remove("menuBurgerItem3");
-    return setMenuToggle(false);
+    setMenuToggle(false);
   };
 
   useEffect(() => {
-    menuBurger.current.addEventListener("mouseover", () => {
-      menuBurgerItem1.current.style.backgroundColor = burgerColorHover;
-      menuBurgerItem2.current.style.backgroundColor = burgerColorHover;
-      menuBurgerItem3.current.style.backgroundColor = burgerColorHover;
-    });
-    menuBurger.current.addEventListener("mouseleave", () => {
-      menuBurgerItem1.current.style.backgroundColor = burgerColor;
-      menuBurgerItem2.current.style.backgroundColor = burgerColor;
-      menuBurgerItem3.current.style.backgroundColor = burgerColor;
-    });
+    const handleMouseOver = (element, color) => {
+      element.style.color = color;
+    };
 
-    logoRef.current.addEventListener("mouseover", () => {
-      logoRef.current.style.filter = `drop-shadow(0 0 ${logoHoverSize} ${logoHoverColor})`;
-    });
+    const handleMouseLeave = (element, color) => {
+      element.style.color = color;
+    };
 
-    logoRef.current.addEventListener("mouseleave", () => {
-      logoRef.current.style.filter = `none`;
-    });
+    const addHoverEffect = (element, colorHover, color) => {
+      element.addEventListener("mouseover", () => handleMouseOver(element, colorHover));
+      element.addEventListener("mouseleave", () => handleMouseLeave(element, color));
+    };
 
-    link1.current.addEventListener("mouseover", () => {
-      link1.current.style.color = link1ColorHover;
-    });
+    const removeHoverEffect = (element, colorHover, color) => {
+      element.removeEventListener("mouseover", () => handleMouseOver(element, colorHover));
+      element.removeEventListener("mouseleave", () => handleMouseLeave(element, color));
+    };
 
-    link1.current.addEventListener("mouseleave", () => {
-      link1.current.style.color = link1Color;
-    });
+    const elements = [
+      { ref: menuBurgerItem1, colorHover: burgerColorHover, color: burgerColor },
+      { ref: menuBurgerItem2, colorHover: burgerColorHover, color: burgerColor },
+      { ref: menuBurgerItem3, colorHover: burgerColorHover, color: burgerColor },
+      { ref: logoRef, colorHover: `drop-shadow(0 0 ${logoHoverSize} ${logoHoverColor})`, color: "none" },
+      { ref: link1, colorHover: link1ColorHover, color: link1Color },
+      { ref: link2, colorHover: link2ColorHover, color: link2Color },
+      { ref: link3, colorHover: link3ColorHover, color: link3Color },
+      { ref: link4, colorHover: link4ColorHover, color: link4Color },
+    ];
 
-    link2.current.addEventListener("mouseover", () => {
-      link2.current.style.color = link2ColorHover;
-    });
-
-    link2.current.addEventListener("mouseleave", () => {
-      link2.current.style.color = link2Color;
-    });
-
-    link3.current.addEventListener("mouseover", () => {
-      link3.current.style.color = link3ColorHover;
-    });
-
-    link3.current.addEventListener("mouseleave", () => {
-      link3.current.style.color = link3Color;
-    });
-
-    link4.current.addEventListener("mouseover", () => {
-      link4.current.style.color = link4ColorHover;
-    });
-
-    link4.current.addEventListener("mouseleave", () => {
-      link4.current.style.color = link4Color;
+    elements.forEach(({ ref, colorHover, color }) => {
+      if (ref.current) {
+        addHoverEffect(ref.current, colorHover, color);
+      }
     });
 
     const search = document.querySelector("#searchIcon");
     const cart = document.querySelector("#cartIcon");
     const profile = document.querySelector("#profileIcon");
 
-    if (searchIcon) {
-      search.addEventListener("mouseover", () => {
-        search.style.color = searchIconColorHover;
-      });
-
-      search.addEventListener("mouseleave", () => {
-        search.style.color = searchIconColor;
-      });
+    if (searchIcon && search) {
+      addHoverEffect(search, searchIconColorHover, searchIconColor);
     }
 
-    if (cartIcon) {
-      cart.addEventListener("mouseover", () => {
-        cart.style.color = cartIconColorHover;
-      });
-
-      cart.addEventListener("mouseleave", () => {
-        cart.style.color = cartIconColor;
-      });
+    if (cartIcon && cart) {
+      addHoverEffect(cart, cartIconColorHover, cartIconColor);
     }
 
-    if (profileIcon) {
-      profile.addEventListener("mouseover", () => {
-        profile.style.color = profileIconColorHover;
+    if (profileIcon && profile) {
+      addHoverEffect(profile, profileIconColorHover, profileIconColor);
+    }
+
+    return () => {
+      elements.forEach(({ ref, colorHover, color }) => {
+        if (ref.current) {
+          removeHoverEffect(ref.current, colorHover, color);
+        }
       });
 
-      profile.addEventListener("mouseleave", () => {
-        profile.style.color = profileIconColor;
-      });
-    }
-  });
+      if (searchIcon && search) {
+        removeHoverEffect(search, searchIconColorHover, searchIconColor);
+      }
+
+      if (cartIcon && cart) {
+        removeHoverEffect(cart, cartIconColorHover, cartIconColor);
+      }
+
+      if (profileIcon && profile) {
+        removeHoverEffect(profile, profileIconColorHover, profileIconColor);
+      }
+    };
+  }, [
+    burgerColor,
+    burgerColorHover,
+    logoHoverColor,
+    logoHoverSize,
+    link1Color,
+    link1ColorHover,
+    link2Color,
+    link2ColorHover,
+    link3Color,
+    link3ColorHover,
+    link4Color,
+    link4ColorHover,
+    searchIcon,
+    searchIconColor,
+    searchIconColorHover,
+    cartIcon,
+    cartIconColor,
+    cartIconColorHover,
+    profileIcon,
+    profileIconColor,
+    profileIconColorHover,
+  ]);
 
   return (
     <Fragment>
